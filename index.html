@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>福利久久｜活動總覽</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-[#fafafa] text-gray-800">
+
+  <!-- 頭部（大圖 Banner） -->
+  <header class="relative isolate">
+    <!-- 穩定可載入的背景圖 -->
+    <img
+      src="https://images.pexels.com/photos/5632395/pexels-photo-5632395.jpeg?auto=compress&cs=tinysrgb&w=1600&h=600&dpr=1"
+      alt="活動 Banner"
+      class="absolute inset-0 h-[320px] w-full object-cover" />
+    <!-- 漸層遮罩 -->
+    <div class="absolute inset-0 bg-gradient-to-r from-black/70 via-black/40 to-transparent"></div>
+
+    <div class="relative">
+      <div class="mx-auto max-w-6xl px-6 h-[320px] flex items-center">
+        <div class="flex items-center gap-4">
+          <img
+            src="./assets/images/free99-logo.png"
+            alt="福利久久 Logo"
+            class="h-16 w-auto drop-shadow-md bg-white/90 rounded-md p-1" />
+          <div>
+            <h1 class="text-4xl md:text-5xl font-extrabold text-white tracking-wide">好康活動一覽</h1>
+            <p class="mt-2 text-white/90 md:text-lg">精選品牌、獨家優惠，給您最值得的消費體驗。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 裝飾波浪 -->
+    <svg class="absolute -bottom-px left-0 w-full" viewBox="0 0 1440 90" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+      <path d="M0,64 C240,96 480,0 720,32 C960,64 1200,80 1440,48 L1440,90 L0,90 Z" fill="#fafafa"/>
+    </svg>
+  </header>
+
+  <main class="mx-auto max-w-6xl px-6 pb-16 space-y-16">
+
+    <!-- 區塊標題元件 -->
+    <template id="__section-title"></template>
+
+    <!-- 即將開始 -->
+    <section aria-labelledby="upcoming-title" class="scroll-mt-24">
+      <div class="flex items-center gap-3 mb-6">
+        <span class="inline-flex h-3 w-3 rounded-full bg-amber-500"></span>
+        <h2 id="upcoming-title" class="text-2xl md:text-3xl font-bold text-amber-600">即將開始</h2>
+      </div>
+
+      <div class="grid gap-6 md:grid-cols-2">
+        <!-- 卡片 A -->
+        <article class="group overflow-hidden rounded-2xl bg-white shadow-sm ring-1 ring-gray-200 hover:shadow-lg transition">
+          <div class="relative h-44">
+            <img
+              src="https://images.pexels.com/photos/5632391/pexels-photo-5632391.jpeg?auto=compress&cs=tinysrgb&w=1200&h=500&dpr=1"
+              alt="中秋活動示意"
+              class="h-full w-full object-cover group-hover:scale-[1.03] transition" />
+            <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+            <div class="absolute bottom-3 left-3 flex items-center gap-2">
+              <span class="rounded-full bg-white/90 px-3 py-1 text-xs font-semibold text-gray-800">會員專屬</span>
+              <span class="rounded-full bg-amber-500/90 px-3 py-1 text-xs font-semibold text-white">9/01 開始</span>
+            </div>
+          </div>
+          <div class="p-5">
+            <h3 class="text-lg font-bold">好友相揪享福利</h3>
+            <p class="mt-1 text-sm text-gray-600">限時加碼回饋，禮盒/票券/生活家電全面優惠。</p>
+            <div class="mt-4 flex items-center justify-between">
+              <span class="text-sm text-gray-500">2025/09/01 ~ 2025/09/05</span>
+              <a href="./friend-invite-2025/index.html" class="inline-flex items-center gap-2 rounded-full bg-[#ff4d4f] px-4 py-2 text-white text-sm hover:bg-[#e63f41]">
+                查看詳情
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+              </a>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- 進行中 -->
+    <section aria-labelledby="ongoing-title" class="scroll-mt-24">
+      <div class="flex items-center gap-3 mb-6">
+        <span class="inline-flex h-3 w-3 rounded-full bg-red-500"></span>
+        <h2 id="ongoing-title" class="text-2xl md:text-3xl font-bold text-red-600">進行中</h2>
+      </div>
+
+      <!-- 空狀態（有活動時把這塊換成卡片清單即可） -->
+      <div class="relative overflow-hidden rounded-2xl border border-dashed border-red-300 bg-white p-10 text-center">
+        <div class="absolute -left-10 -top-10 h-36 w-36 rounded-full bg-red-100 blur-2xl"></div>
+        <div class="absolute -right-6 -bottom-6 h-28 w-28 rounded-full bg-rose-100 blur-2xl"></div>
+        <h3 class="text-lg font-semibold">目前沒有進行中的活動</h3>
+        <p class="mt-1 text-sm text-gray-600">請留意即將開始的活動，或回到首頁看看其他優惠。</p>
+        <div class="mt-5 flex items-center justify-center gap-3">
+          <a href="#" class="rounded-full bg-[#ff4d4f] px-4 py-2 text-white text-sm hover:bg-[#e63f41]">返回首頁</a>
+          <a href="https://lin.ee/G2JDpXEX" class="rounded-full border border-gray-300 px-4 py-2 text-sm text-gray-700 hover:bg-gray-50">關注官方LINE !好康不錯過~</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- 已結束 -->
+    <section aria-labelledby="ended-title" class="scroll-mt-24">
+      <div class="flex items-center gap-3 mb-6">
+        <span class="inline-flex h-3 w-3 rounded-full bg-gray-400"></span>
+        <h2 id="ended-title" class="text-2xl md:text-3xl font-bold text-gray-600">已結束</h2>
+      </div>
+
+       <!-- 空狀態（有活動時把這塊換成卡片清單即可） -->
+      <div class="relative overflow-hidden rounded-2xl border border-dashed border-gray-300 bg-white p-10 text-center">
+        <div class="absolute -left-10 -top-10 h-36 w-36 rounded-full bg-gray-100 blur-2xl"></div>
+        <div class="absolute -right-6 -bottom-6 h-28 w-28 rounded-full bg-gray-100 blur-2xl"></div>
+        <h3 class="text-lg font-semibold">目前沒有已結束的活動</h3>
+        <p class="mt-1 text-sm text-gray-600">請留意即將開始的活動，或回到首頁看看其他優惠。</p>
+        <div class="mt-5 flex items-center justify-center gap-3">
+          <a href="#" class="rounded-full bg-[#ff4d4f] px-4 py-2 text-white text-sm hover:bg-[#e63f41]">返回首頁</a>
+          <a href="https://lin.ee/G2JDpXEX" class="rounded-full border border-gray-300 px-4 py-2 text-sm text-gray-700 hover:bg-gray-50">關注官方LINE !好康不錯過~</a>
+        </div>
+      </div>
+
+      <div class="grid gap-6 md:grid-cols-2">
+        <!-- 
+        <article class="group overflow-hidden rounded-2xl bg-white shadow-sm ring-1 ring-gray-200 transition">
+          <div class="relative h-40">
+            <img
+              src="https://images.pexels.com/photos/5632397/pexels-photo-5632397.jpeg?auto=compress&cs=tinysrgb&w=1200&h=480&dpr=1"
+              alt="七夕活動示意"
+              class="h-full w-full object-cover grayscale group-hover:grayscale-0 transition" />
+            <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+            <span class="absolute top-3 right-3 rounded-full bg-gray-900/70 px-3 py-1 text-xs font-semibold text-white">已結束</span>
+          </div>
+          <div class="p-5">
+            <h3 class="text-lg font-bold">七夕限定優惠</h3>
+            <p class="mt-1 text-sm text-gray-600">活動期間：2025/07/15 - 2025/07/22</p>
+            <div class="mt-3">
+              <a href="#" class="inline-flex items-center gap-2 text-sm text-gray-700 hover:text-gray-900">
+                查看活動回顧
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+              </a>
+            </div>
+          </div>
+        </article>
+        <article class="group overflow-hidden rounded-2xl bg-white shadow-sm ring-1 ring-gray-200 transition">
+          <div class="relative h-40">
+            <img
+              src="https://images.pexels.com/photos/1303081/pexels-photo-1303081.jpeg?auto=compress&cs=tinysrgb&w=1200&h=480&dpr=1"
+              alt="端午活動示意"
+              class="h-full w-full object-cover grayscale group-hover:grayscale-0 transition" />
+            <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+            <span class="absolute top-3 right-3 rounded-full bg-gray-900/70 px-3 py-1 text-xs font-semibold text-white">已結束</span>
+          </div>
+          <div class="p-5">
+            <h3 class="text-lg font-bold">端午會員抽獎</h3>
+            <p class="mt-1 text-sm text-gray-600">活動期間：2025/06/01 - 2025/06/05</p>
+            <div class="mt-3">
+              <a href="#" class="inline-flex items-center gap-2 text-sm text-gray-700 hover:text-gray-900">
+                查看中獎名單
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+              </a>
+            </div>
+          </div>
+        </article>
+        -->
+        
+      </div>
+    </section>
+  </main>
+
+  <!-- 頁角 -->
+  <footer class="border-t bg-white">
+    <div class="mx-auto max-w-6xl px-6 py-8 text-center text-sm text-gray-600">
+      © 2025 福利久久 Free99. All rights reserved.
+    </div>
+  </footer>
+
+</body>
+</html>
