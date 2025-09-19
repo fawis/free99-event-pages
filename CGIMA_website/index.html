@@ -5,51 +5,38 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>中華全球整合行銷學會｜官方網站</title>
   <meta name="description" content="本學會專為台灣本地新創與中小企業提供實務課程、證照培訓、異業結盟、資金媒合、公開課與主題展會等全方位解決方案。"/>
-  <!-- Tailwind CSS CDN（可改為自建編譯） -->
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
-    // 自定義 Tailwind 主題色（可依識別色調整）
     tailwind.config = {
       theme: {
         extend: {
           colors: {
             primary: {
-              50: '#eef9ff',
-              100: '#d9f1ff',
-              200: '#b8e6ff',
-              300: '#88d7ff',
-              400: '#4fc0ff',
-              500: '#199fff',
-              600: '#067fe5',
-              700: '#0565b7',
-              800: '#094f8e',
-              900: '#0d426f'
+              50:'#eef9ff',100:'#d9f1ff',200:'#b8e6ff',300:'#88d7ff',400:'#4fc0ff',
+              500:'#199fff',600:'#067fe5',700:'#0565b7',800:'#094f8e',900:'#0d426f'
             },
-            accent: '#00c29a'
-          }
+            accent:'#00c29a'
+          },
+          boxShadow:{ soft:'0 8px 24px rgba(0,0,0,.08)', elev:'0 12px 36px rgba(0,0,0,.12)'}
         }
       }
     }
   </script>
-  <style>
-    /* 平滑滾動 */
-    html{scroll-behavior:smooth}
-    /* 圖片骨架*/
-    .skeleton{background:linear-gradient(90deg,#f3f4f6 25%,#e5e7eb 37%,#f3f4f6 63%);background-size:400% 100%;animation:skeleton 1.2s ease-in-out infinite}
-    @keyframes skeleton{0%{background-position:100% 50%}100%{background-position:0 50%}}
-  </style>
+  <style>html{scroll-behavior:smooth}</style>
 </head>
-<body class="text-gray-800 antialiased">
+<body class="text-gray-800 antialiased relative">
+  <!-- 全頁連貫背景：柔和漸層 + 低透明點陣（加上視差 id） -->
+  <div id="bgGrad" aria-hidden="true" class="fixed inset-0 -z-20 bg-gradient-to-br from-primary-50 via-white to-accent/10 will-change-transform"></div>
+  <div id="bgDots" aria-hidden="true" class="fixed inset-0 -z-10 opacity-[0.05] bg-[radial-gradient(circle_at_1px_1px,#000_1px,transparent_0)] [background-size:28px_28px] will-change-transform"></div>
+
   <!-- 導覽列 -->
-  <header class="sticky top-0 z-40 bg-white/80 backdrop-blur border-b border-gray-200">
+  <header class="sticky top-0 z-40 bg-white/70 backdrop-blur border-b border-white/60 shadow-soft">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <div class="flex h-14 md:h-16 items-center justify-between">
         <a href="#home" class="flex items-center gap-2 font-semibold text-primary-800 hover:opacity-90">
-          <!-- 換成你的 Logo -->
           <img src="images/[Logo]中華全球整合行銷學會-無字.png" alt="學會 Logo" class="h-8 w-auto" />
           <span>中華全球整合行銷學會</span>
         </a>
-
         <nav class="hidden md:flex items-center gap-6 text-sm">
           <a href="#about" class="hover:text-primary-700">沿革</a>
           <a href="#gallery" class="hover:text-primary-700">照片展示</a>
@@ -74,9 +61,8 @@
     </div>
   </header>
 
-  <!-- Hero 區 -->
+  <!-- Hero 區（維持原本樣式；移除覆蓋背景以保連貫） -->
   <section id="home" class="relative overflow-hidden">
-    <div class="absolute inset-0 -z-10 bg-gradient-to-b from-primary-50 via-white to-white"></div>
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12 sm:py-16 lg:py-20">
       <div class="grid md:grid-cols-2 items-center gap-10">
         <div>
@@ -92,20 +78,17 @@
           </div>
         </div>
         <div class="relative">
-          <!-- 圖片可更換為實拍或品牌視覺 -->
-          <img src="images/中華全球整合行銷學會.png" 
-              alt="學會代表圖" 
-              class="aspect-video w-full rounded-2xl shadow-lg ring-1 ring-black/5 object-cover" 
-              width="1920" 
-              height="1080" />
+          <img src="images/中華全球整合行銷學會.png" alt="學會代表圖"
+               class="aspect-video w-full object-cover"
+               width="1920" height="1080" />
         </div>
       </div>
     </div>
   </section>
 
-  <!-- 沿革 / 關於學會 -->
-  <section id="about" class="py-16 sm:py-20 bg-white">
-    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+  <!-- 沿革（卡片容器） -->
+  <section id="about" class="py-2 sm:py-2 px-2 px-2">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 rounded-2xl bg-white/80 backdrop-blur-sm shadow-soft ring-1 ring-black/5 p-6 sm:p-8">
       <div class="grid lg:grid-cols-3 gap-10">
         <div>
           <h2 class="text-2xl sm:text-3xl font-bold text-primary-900">學會沿革</h2>
@@ -116,7 +99,7 @@
             本學會專為台灣本地新創亟須資源企業及有意突破經營瓶頸企業，規劃對業績提昇有實際幫助課程、企業主或企業各級職工相關證照培訓、企業間異業結盟商機引薦、新創公司資金需求媒合……等服務。並時常舉辦新穎產業商機公開課程、各產業主題展覽會或招商會。綜上所述，本學會實為台灣商界難得的全方位經營策略解決方案平台，值得所有商業先進信賴與加入。
           </p>
           <div class="mt-6 grid sm:grid-cols-2 gap-4">
-            <div class="rounded-2xl border border-gray-200 p-5">
+            <div class="rounded-2xl border border-gray-200 p-5 bg-white">
               <h3 class="font-semibold text-primary-800">四大主軸</h3>
               <ul class="mt-3 space-y-2 text-gray-700 text-sm leading-relaxed list-disc pl-5">
                 <li>實務導向課程設計</li>
@@ -125,7 +108,7 @@
                 <li>資金／資源整合與對接</li>
               </ul>
             </div>
-            <div class="rounded-2xl border border-gray-200 p-5">
+            <div class="rounded-2xl border border-gray-200 p-5 bg-white">
               <h3 class="font-semibold text-primary-800">定期活動</h3>
               <ul class="mt-3 space-y-2 text-gray-700 text-sm leading-relaxed list-disc pl-5">
                 <li>公開課／工作坊（新趨勢、新技術）</li>
@@ -141,73 +124,61 @@
   </section>
 
   <!-- 照片展示 -->
-  <section id="gallery" class="py-16 sm:py-20 bg-gray-50">
-  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-    <div class="flex items-end justify-between gap-4">
-      <div>
-        <h2 class="text-2xl sm:text-3xl font-bold text-primary-900">照片展示</h2>
-        <p class="mt-2 text-sm text-gray-500">Events & Moments</p>
+  <section id="gallery" class="py-2 sm:py-2 px-2">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 rounded-2xl bg-white/80 backdrop-blur-sm shadow-soft ring-1 ring-black/5 p-6 sm:p-8">
+      <div class="flex items-end justify-between gap-4">
+        <div>
+          <h2 class="text-2xl sm:text-3xl font-bold text-primary-900">照片展示</h2>
+          <p class="mt-2 text-sm text-gray-500">Events & Moments</p>
+        </div>
+        <a href="#contact" class="hidden sm:inline-flex rounded-xl border border-gray-300 px-3 py-1.5 text-sm hover:bg-white">
+          加入LINEOA了解詳情
+        </a>
       </div>
-      <a href="#contact" class="hidden sm:inline-flex rounded-xl border border-gray-300 px-3 py-1.5 text-sm hover:bg-white">
-        加入LINEOA了解詳情
-      </a>
+      <div class="mt-8 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+        <figure class="group relative overflow-hidden rounded-2xl shadow-sm ring-1 ring-black/5 bg-white">
+          <img src="images/Gallery (6).jpg" alt="活動照片1" class="aspect-[4/3] w-full object-cover" width="1600" height="1200" />
+          <figcaption class="p-3 text-sm text-gray-600">沙縣小吃 夏季加盟展</figcaption>
+        </figure>
+        <figure class="group relative overflow-hidden rounded-2xl shadow-sm ring-1 ring-black/5 bg-white">
+          <img src="images/Gallery (2).jpg" alt="活動照片2" class="aspect-[4/3] w-full object-cover" width="1600" height="1200" />
+          <figcaption class="p-3 text-sm text-gray-600">沙縣小吃 高雄加盟展</figcaption>
+        </figure>
+        <figure class="group relative overflow-hidden rounded-2xl shadow-sm ring-1 ring-black/5 bg-white">
+          <img src="images/Gallery (3).jpg" alt="活動照片3" class="aspect-[4/3] w-full object-cover" width="1600" height="1200" />
+          <figcaption class="p-3 text-sm text-gray-600">沙縣小吃 桃園旗艦店開幕</figcaption>
+        </figure>
+        <figure class="group relative overflow-hidden rounded-2xl shadow-sm ring-1 ring-black/5 bg-white">
+          <img src="images/Gallery (4).jpg" alt="活動照片4" class="aspect-[4/3] w-full object-cover" width="1600" height="1200" />
+          <figcaption class="p-3 text-sm text-gray-600">FAFAGO 加盟展夥伴合影</figcaption>
+        </figure>
+        <figure class="group relative overflow-hidden rounded-2xl shadow-sm ring-1 ring-black/5 bg-white">
+          <img src="images/Gallery (7).jpg" alt="活動照片5" class="aspect-[4/3] w-full object-cover" width="1600" height="1200" />
+          <figcaption class="p-3 text-sm text-gray-600">FAFAGO 加盟展展間</figcaption>
+        </figure>
+        <figure class="group relative overflow-hidden rounded-2xl shadow-sm ring-1 ring-black/5 bg-white">
+          <img src="images/Gallery (8).jpg" alt="活動照片6" class="aspect-[4/3] w-full object-cover" width="1600" height="1200" />
+          <figcaption class="p-3 text-sm text-gray-600">FAFAGO 充電場域</figcaption>
+        </figure>
+        <figure class="group relative overflow-hidden rounded-2xl shadow-sm ring-1 ring-black/5 bg-white">
+          <img src="images/Gallery (5).jpg" alt="活動照片7" class="aspect-[4/3] w-full object-cover" width="1600" height="1200" />
+          <figcaption class="p-3 text-sm text-gray-600">大師來了 節目拍攝合影</figcaption>
+        </figure>
+        <figure class="group relative overflow-hidden rounded-2xl shadow-sm ring-1 ring-black/5 bg-white">
+          <img src="images/Gallery (1).jpg" alt="活動照片8" class="aspect-[4/3] w-full object-cover" width="1600" height="1200" />
+          <figcaption class="p-3 text-sm text-gray-600">活動合影</figcaption>
+        </figure>
+        <figure class="group relative overflow-hidden rounded-2xl shadow-sm ring-1 ring-black/5 bg-white">
+          <img src="images/Gallery (9).jpg" alt="活動照片9" class="aspect-[4/3] w-full object-cover" width="1600" height="1200" />
+          <figcaption class="p-3 text-sm text-gray-600">活動合影</figcaption>
+        </figure>
+      </div>
     </div>
-
-    <!-- 以 3×N 格狀呈現，請替換為實際圖片 -->
-    <div class="mt-8 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
-      <!-- 單張卡片 -->
-      <figure class="group relative overflow-hidden rounded-2xl shadow-sm ring-1 ring-black/5 bg-white">
-        <img src="images/Gallery (6).jpg" alt="活動照片1" class="aspect-[4/3] w-full object-cover" width="1600" height="1200" />
-        <figcaption class="p-3 text-sm text-gray-600">沙縣小吃 夏季加盟展</figcaption>
-      </figure>
-
-      <figure class="group relative overflow-hidden rounded-2xl shadow-sm ring-1 ring-black/5 bg-white">
-        <img src="images/Gallery (2).jpg" alt="活動照片2" class="aspect-[4/3] w-full object-cover" width="1600" height="1200" />
-        <figcaption class="p-3 text-sm text-gray-600">沙縣小吃 高雄加盟展</figcaption>
-      </figure>
-
-      <figure class="group relative overflow-hidden rounded-2xl shadow-sm ring-1 ring-black/5 bg-white">
-        <img src="images/Gallery (3).jpg" alt="活動照片3" class="aspect-[4/3] w-full object-cover" width="1600" height="1200" />
-        <figcaption class="p-3 text-sm text-gray-600">沙縣小吃 桃園旗艦店開幕</figcaption>
-      </figure>
-
-      <figure class="group relative overflow-hidden rounded-2xl shadow-sm ring-1 ring-black/5 bg-white">
-        <img src="images/Gallery (4).jpg" alt="活動照片4" class="aspect-[4/3] w-full object-cover" width="1600" height="1200" />
-        <figcaption class="p-3 text-sm text-gray-600">FAFAGO 加盟展夥伴合影</figcaption>
-      </figure>
-
-      <figure class="group relative overflow-hidden rounded-2xl shadow-sm ring-1 ring-black/5 bg-white">
-        <img src="images/Gallery (7).jpg" alt="活動照片5" class="aspect-[4/3] w-full object-cover" width="1600" height="1200" />
-        <figcaption class="p-3 text-sm text-gray-600">FAFAGO 加盟展展間</figcaption>
-      </figure>
-
-      <figure class="group relative overflow-hidden rounded-2xl shadow-sm ring-1 ring-black/5 bg-white">
-        <img src="images/Gallery (8).jpg" alt="活動照片6" class="aspect-[4/3] w-full object-cover" width="1600" height="1200" />
-        <figcaption class="p-3 text-sm text-gray-600">FAFAGO 充電場域</figcaption>
-      </figure>
-
-      <figure class="group relative overflow-hidden rounded-2xl shadow-sm ring-1 ring-black/5 bg-white">
-        <img src="images/Gallery (5).jpg" alt="活動照片6" class="aspect-[4/3] w-full object-cover" width="1600" height="1200" />
-        <figcaption class="p-3 text-sm text-gray-600">大師來了 節目拍攝合影</figcaption>
-      </figure>
-
-      <figure class="group relative overflow-hidden rounded-2xl shadow-sm ring-1 ring-black/5 bg-white">
-        <img src="images/Gallery (1).jpg" alt="活動照片6" class="aspect-[4/3] w-full object-cover" width="1600" height="1200" />
-        <figcaption class="p-3 text-sm text-gray-600">活動合影</figcaption>
-      </figure>
-
-      <figure class="group relative overflow-hidden rounded-2xl shadow-sm ring-1 ring-black/5 bg-white">
-        <img src="images/Gallery (9).jpg" alt="活動照片6" class="aspect-[4/3] w-full object-cover" width="1600" height="1200" />
-        <figcaption class="p-3 text-sm text-gray-600">活動合影</figcaption>
-      </figure>
-    </div>
-  </div>
-</section>
-
+  </section>
 
   <!-- 合作品牌／企業 -->
-  <section id="partners" class="py-16 sm:py-20 bg-white">
-    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+  <section id="partners" class="py-2 sm:py-2 px-2">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 rounded-2xl bg-white/80 backdrop-blur-sm shadow-soft ring-1 ring-black/5 p-6 sm:p-8">
       <div class="flex items-end justify-between gap-4">
         <div>
           <h2 class="text-2xl sm:text-3xl font-bold text-primary-900">合作品牌／企業</h2>
@@ -216,59 +187,37 @@
         <a href="#contact" class="hidden sm:inline-flex rounded-xl border border-gray-300 px-3 py-1.5 text-sm hover:bg-gray-50">我要成為合作夥伴</a>
       </div>
 
-      <!-- Logo 牆（以灰階呈現，滑過彩色）-->
       <div class="mt-8 grid grid-cols-2 xs:grid-cols-3 sm:grid-cols-4 lg:grid-cols-6 gap-6">
-        <!-- FAFAGO -->
         <div class="flex items-center justify-center rounded-2xl border border-gray-200 bg-white p-6 hover:shadow-sm transition">
           <img src="images/[Logo]FAFAGO.png" alt="FAFAGO Logo" class="h-20 w-auto object-contain opacity-90 hover:opacity-100 transition" />
         </div>
-
-        <!-- 大師來了 -->
         <div class="flex items-center justify-center rounded-2xl border border-gray-200 bg-white p-6 hover:shadow-sm transition">
           <img src="images/[Logo]大師來了(硃砂紅).png" alt="大師來了 Logo" class="h-20 w-auto object-contain opacity-90 hover:opacity-100 transition" />
         </div>
-
-        <!-- 全國公務人員福利網 -->
         <div class="flex items-center justify-center rounded-2xl border border-gray-200 bg-white p-6 hover:shadow-sm transition">
           <img src="images/[Logo]全國公務人員福利網.png" alt="全國公務人員福利網 Logo" class="h-20 w-auto object-contain opacity-90 hover:opacity-100 transition" />
         </div>
-
-        <!-- 福爾摩沙 -->
         <div class="flex items-center justify-center rounded-2xl border border-gray-200 bg-white p-6 hover:shadow-sm transition">
           <img src="images/[Logo]福爾摩沙.png" alt="福爾摩沙 Logo" class="h-20 w-auto object-contain opacity-90 hover:opacity-100 transition" />
         </div>
-        
-        <!-- 台秀網 -->
         <div class="flex items-center justify-center rounded-2xl border border-gray-200 bg-white p-6 hover:shadow-sm transition">
           <img src="images/[Logo]台秀網.png" alt="台秀網 Logo" class="h-20 w-auto object-contain opacity-90 hover:opacity-100 transition" />
         </div>
-        
-        <!-- 福利久久 -->
         <div class="flex items-center justify-center rounded-2xl border border-gray-200 bg-white p-6 hover:shadow-sm transition">
           <img src="images/[Logo]福利久久(中文).png" alt="福利久久 Logo" class="h-20 w-auto object-contain opacity-90 hover:opacity-100 transition" />
         </div>
-
-        <!-- 沙縣小吃 -->
         <div class="flex items-center justify-center rounded-2xl border border-gray-200 bg-white p-6 hover:shadow-sm transition">
           <img src="images/[Logo]沙縣小吃.png" alt="沙縣小吃 Logo" class="h-20 w-auto object-contain opacity-90 hover:opacity-100 transition" />
         </div>
-
-        <!-- 茶與布朗 -->
         <div class="flex items-center justify-center rounded-2xl border border-gray-200 bg-white p-6 hover:shadow-sm transition">
           <img src="images/[Logo]茶與布朗.png" alt="茶與布朗 Logo" class="h-20 w-auto object-contain opacity-90 hover:opacity-100 transition" />
         </div>
-
-        <!-- 華訊集團 -->
         <div class="flex items-center justify-center rounded-2xl border border-gray-200 bg-white p-6 hover:shadow-sm transition">
           <img src="images/[Logo]華訊集團.png" alt="華訊集團 Logo" class="h-20 w-auto object-contain opacity-90 hover:opacity-100 transition" />
         </div>
-
-        <!-- 華訊智慧 -->
         <div class="flex items-center justify-center rounded-2xl border border-gray-200 bg-white p-6 hover:shadow-sm transition">
           <img src="images/[Logo]華訊智慧.png" alt="華訊智慧 Logo" class="h-20 w-auto object-contain opacity-90 hover:opacity-100 transition" />
         </div>
-
-        <!-- 鍠軒國際 -->
         <div class="flex items-center justify-center rounded-2xl border border-gray-200 bg-white p-6 hover:shadow-sm transition">
           <img src="images/[Logo]鍠軒國際.png" alt="鍠軒國際 Logo" class="h-20 w-auto object-contain opacity-90 hover:opacity-100 transition" />
         </div>
@@ -277,11 +226,10 @@
   </section>
 
   <!-- 理事歷程 -->
-  <section id="board" class="py-16 sm:py-20 bg-gray-50">
-    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+  <section id="board" class="py-2 sm:py-2 px-2">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 rounded-2xl bg-white/80 backdrop-blur-sm shadow-soft ring-1 ring-black/5 p-6 sm:p-8">
       <h2 class="text-2xl sm:text-3xl font-bold text-primary-900">理事歷程</h2>
       <p class="mt-2 text-sm text-gray-500">Board & Milestones</p>
-
       <div class="mt-6 overflow-hidden rounded-2xl border border-gray-200 bg-white">
         <div class="overflow-x-auto">
           <table class="min-w-full text-left text-xs sm:text-sm">
@@ -317,8 +265,8 @@
   </section>
 
   <!-- 聯絡我們 -->
-  <section id="contact" class="py-16 sm:py-20 bg-white">
-    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+  <section id="contact" class="py-2 sm:py-2 px-2">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 rounded-2xl bg-white/80 backdrop-blur-sm shadow-soft ring-1 ring-black/5 p-6 sm:p-8">
       <div class="grid lg:grid-cols-2 gap-10 items-start">
         <div>
           <h2 class="text-2xl sm:text-3xl font-bold text-primary-900">聯絡我們</h2>
@@ -333,11 +281,10 @@
           </ul>
         </div>
         <div class="lg:pl-8">
-          <div class="rounded-2xl border border-gray-200 p-6 bg-gray-50">
+          <div class="rounded-2xl border border-gray-200 p-6 bg-white">
             <h3 class="font-semibold text-primary-800">官方 LINE OA</h3>
             <p class="mt-2 text-sm text-gray-600">請將 QR Code 圖片置於下方框內。</p>
             <div class="mt-4 aspect-square w-full max-w-xs mx-auto rounded-2xl bg-white border border-dashed border-gray-300 grid place-items-center overflow-hidden">
-              <!-- QR Code 圖片 -->
               <img src="images/LINEOA_QRCode.jpg" alt="LINE 官方帳號 QR Code" class="h-full w-full object-contain" />
             </div>
             <a href="https://lin.ee/0bwRRjo" class="mt-4 block text-center text-sm text-primary-700 hover:underline">
@@ -349,61 +296,54 @@
     </div>
   </section>
 
-  
-<!-- Modal：AI 智能設備特展（貼在 </footer> 上方） -->
-<dialog id="promoModal" class="backdrop:bg-black/70 p-0 border-0 rounded-2xl w-[92vw] max-w-lg">
-  <div class="bg-white rounded-2xl overflow-hidden shadow-2xl ring-1 ring-black/5">
-    <!-- 頭圖（可換你的海報） -->
-    <div class="relative">
-      <img src="images/poster1.png" alt="AI 智能設備特展 海報" class="h-60 w-full object-cover sm:h-48">
-      <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent"></div>
-      <div class="absolute bottom-3 left-4 right-4">
-        <p class="text-xs text-white/90 tracking-widest">SPECIAL EVENT</p>
-        <h2 class="mt-0.5 text-xl sm:text-2xl font-extrabold text-white drop-shadow">
-          AI 智能設備特展
-        </h2>
+  <!-- 進場彈窗（保留你現在這一版有頭圖的樣式） -->
+  <dialog id="promoModal" class="backdrop:bg-black/70 p-0 border-0 rounded-2xl w-[92vw] max-w-lg">
+    <div class="bg-white rounded-2xl overflow-hidden shadow-2xl ring-1 ring-black/5">
+      <div class="relative">
+        <picture>
+          <source srcset="images/poster1.png" type="image/webp" media="(max-width: 640px)">
+          <source srcset="images/poster1.png" media="(max-width: 640px)">
+          <source srcset="images/poster1.png" type="image/webp">
+          <img src="images/poster1.png" alt="AI 智能設備特展 主視覺海報" class="h-40 sm:h-48 w-full object-cover" width="1920" height="1080">
+        </picture>
+        <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent"></div>
+        <div class="absolute bottom-3 left-4 right-4">
+          <p class="text-xs text-white/90 tracking-widest">SPECIAL EVENT</p>
+          <h2 class="mt-0.5 text-xl sm:text-2xl font-extrabold text-white drop-shadow">AI 智能設備特展</h2>
+        </div>
+      </div>
+      <div class="p-5 sm:p-6">
+        <ul class="text-sm text-gray-700 space-y-1.5">
+          <li class="flex gap-2"><span class="mt-1 inline-block h-1.5 w-1.5 rounded-full bg-primary-600"></span>時間：<b>9/20–22</b>　10:00–17:00</li>
+          <li class="flex gap-2"><span class="mt-1 inline-block h-1.5 w-1.5 rounded-full bg-primary-600"></span>地點：世貿一館二樓 <b>第二會議室</b></li>
+          <li class="flex gap-2"><span class="mt-1 inline-block h-1.5 w-1.5 rounded-full bg-primary-600"></span>活動：<b class="text-primary-700">免費入場</b>，憑券兌換「茶與布朗」飲品 1 杯</li>
+        </ul>
+        <div class="mt-4 flex flex-col sm:flex-row gap-2">
+          <a href="event.html" class="inline-flex justify-center items-center rounded-xl bg-primary-600 px-5 py-3 text-white font-medium shadow hover:bg-primary-700 transition">查看活動詳情</a>
+          <button id="promoClose" class="inline-flex justify-center items-center rounded-xl border border-gray-300 px-5 py-3 text-gray-700 hover:bg-gray-50 transition">之後再說</button>
+        </div>
       </div>
     </div>
+  </dialog>
 
-    <!-- 內容 -->
-    <div class="p-5 sm:p-6">
-      <ul class="text-sm text-gray-700 space-y-1.5">
-        <li class="flex gap-2">
-          <span class="mt-1 inline-block h-1.5 w-1.5 rounded-full bg-primary-600"></span>
-          時間：<b>9/20–22</b>　10:00–17:00
-        </li>
-        <li class="flex gap-2">
-          <span class="mt-1 inline-block h-1.5 w-1.5 rounded-full bg-primary-600"></span>
-          地點：世貿一館二樓 <b>第二會議室</b>
-        </li>
-        <li class="flex gap-2">
-          <span class="mt-1 inline-block h-1.5 w-1.5 rounded-full bg-primary-600"></span>
-          活動：<b class="text-primary-700">免費入場</b>，憑券兌換「茶與布朗」飲品 1 杯
-        </li>
-      </ul>
-
-      <!-- CTA -->
-      <div class="mt-4 flex flex-col sm:flex-row gap-2">
-        <a href="event.html"
-           class="inline-flex justify-center items-center rounded-xl bg-primary-600 px-5 py-3 text-white font-medium shadow hover:bg-primary-700 transition">
-          查看活動詳情
+  <!-- Sticky Banner -->
+  <div class="pointer-events-none fixed inset-x-0 bottom-0 sm:flex sm:justify-center sm:px-6 sm:pb-5 lg:px-8 z-50">
+    <div class="pointer-events-auto flex items-center justify-between gap-x-6 bg-primary-700 px-6 py-2.5 sm:rounded-xl sm:py-3 sm:pr-3.5 sm:pl-4 shadow-lg">
+      <p class="text-sm text-white">
+        <a href="event.html" class="hover:underline">
+          <strong class="font-semibold">AI 智能設備特展</strong>
+          <svg viewBox="0 0 2 2" aria-hidden="true" class="mx-2 inline size-0.5 fill-current"><circle r="1" cx="1" cy="1"/></svg>
+          9/20–22 世貿一館二樓 免費入場，憑券兌飲品 →
         </a>
-        <button id="promoClose"
-                class="inline-flex justify-center items-center rounded-xl border border-gray-300 px-5 py-3 text-gray-700 hover:bg-gray-50 transition">
-          之後再說
-        </button>
-      </div>
-
-      <!-- 小字 -->
-      <p class="mt-3 text-[11px] text-gray-500">
-        * 每人限兌一次，實際規則以現場公告為準。
       </p>
+      <button type="button" id="closeBanner" class="-m-1.5 flex-none p-1.5" aria-label="關閉公告條">
+        <svg viewBox="0 0 20 20" fill="currentColor" class="size-5 text-white"><path d="M6.28 5.22a.75.75 0 0 0-1.06 1.06L8.94 10l-3.72 3.72a.75.75 0 1 0 1.06 1.06L10 11.06l3.72 3.72a.75.75 0 1 0 1.06-1.06L11.06 10l3.72-3.72a.75.75 0 0 0-1.06-1.06L10 8.94 6.28 5.22Z"/></svg>
+      </button>
     </div>
   </div>
-</dialog>
 
   <!-- 頁尾 -->
-  <footer class="border-t border-gray-200">
+  <footer class="border-t border-white/60 bg-white/70 backdrop-blur">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-10 text-sm text-gray-600">
       <div class="flex flex-col sm:flex-row items-center justify-between gap-4">
         <p>© <span id="year"></span> 中華全球整合行銷學會｜All Rights Reserved.</p>
@@ -416,67 +356,60 @@
     </div>
   </footer>
 
-  <!-- Banner -->
-  <div class="pointer-events-none fixed inset-x-0 bottom-0 sm:flex sm:justify-center sm:px-6 sm:pb-5 lg:px-8 z-50">
-  <div class="pointer-events-auto flex items-center justify-between gap-x-6 bg-primary-700 px-6 py-2.5 sm:rounded-xl sm:py-3 sm:pr-3.5 sm:pl-4 shadow-lg">
-    <p class="text-sm text-white">
-      <a href="event.html" class="hover:underline">
-        <strong class="font-semibold">AI 智能設備特展</strong>
-        <svg viewBox="0 0 2 2" aria-hidden="true" class="mx-2 inline size-0.5 fill-current"><circle r="1" cx="1" cy="1"/></svg>
-        9/20–22 世貿一館二樓 免費入場，憑券兌飲品 → 
-      </a>
-    </p>
-    <button type="button" id="closeBanner" class="-m-1.5 flex-none p-1.5">
-      <span class="sr-only">Dismiss</span>
-      <svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" class="size-5 text-white">
-        <path d="M6.28 5.22a.75.75 0 0 0-1.06 1.06L8.94 10l-3.72 3.72a.75.75 0 1 0 1.06 1.06L10 11.06l3.72 3.72a.75.75 0 1 0 1.06-1.06L11.06 10l3.72-3.72a.75.75 0 0 0-1.06-1.06L10 8.94 6.28 5.22Z"/>
-      </svg>
-    </button>
-  </div>
-</div>
-
-<script>
-  document.getElementById('closeBanner').addEventListener('click',()=>{
-    document.querySelector('#closeBanner').parentElement.parentElement.remove();
-  });
-
-  (function () {
-    const modal = document.getElementById('promoModal');
-    const btnClose = document.getElementById('promoClose');
-
-    if (!modal) return;
-
-    // 🚀 頁面載入時每次都自動開啟
-    setTimeout(() => {
-      modal.showModal();
-      modal.animate(
-        [{ opacity: 0, transform: 'scale(.98)' }, { opacity: 1, transform: 'scale(1)' }],
-        { duration: 160, easing: 'ease-out' }
-      );
-    }, 600);
-
-    // 關閉 Modal
-    function closeModal() {
-      modal.animate(
-        [{ opacity: 1, transform: 'scale(1)' }, { opacity: 0, transform: 'scale(.98)' }],
-        { duration: 120, easing: 'ease-in' }
-      ).onfinish = () => modal.close();
-    }
-
-    btnClose?.addEventListener('click', closeModal);
-    modal.addEventListener('click', (e) => { if (e.target === modal) closeModal(); });
-  })();
-</script>
-
-
   <script>
-    // 年份顯示
+    // 年份
     document.getElementById('year').textContent = new Date().getFullYear();
 
     // 手機選單
     const menuBtn = document.getElementById('menuBtn');
     const mobileMenu = document.getElementById('mobileMenu');
     menuBtn?.addEventListener('click', ()=> mobileMenu.classList.toggle('hidden'));
+
+    // Sticky Banner 關閉
+    document.getElementById('closeBanner').addEventListener('click',()=>{
+      document.getElementById('closeBanner').closest('.pointer-events-none').remove();
+    });
+
+    // 進場彈窗：每次進站顯示
+    (function () {
+      const modal = document.getElementById('promoModal');
+      const btnClose = document.getElementById('promoClose');
+      if (!modal) return;
+      setTimeout(() => {
+        modal.showModal();
+        modal.animate(
+          [{ opacity: 0, transform: 'scale(.98)' }, { opacity: 1, transform: 'scale(1)' }],
+          { duration: 160, easing: 'ease-out' }
+        );
+      }, 600);
+      function closeModal() {
+        modal.animate(
+          [{ opacity: 1, transform: 'scale(1)' }, { opacity: 0, transform: 'scale(.98)' }],
+          { duration: 120, easing: 'ease-in' }
+        ).onfinish = () => modal.close();
+      }
+      btnClose?.addEventListener('click', closeModal);
+      modal.addEventListener('click', (e) => { if (e.target === modal) closeModal(); });
+    })();
+
+    // 視差：背景輕微位移（效能友善）
+    (function(){
+      const grad = document.getElementById('bgGrad');
+      const dots = document.getElementById('bgDots');
+      let ticking = false;
+      function onScroll(){
+        if(!ticking){
+          window.requestAnimationFrame(()=>{
+            const y = window.scrollY || 0;
+            grad.style.transform = `translateY(${y*0.02}px)`; // 慢
+            dots.style.transform = `translateY(${y*0.06}px)`; // 稍快
+            ticking = false;
+          });
+          ticking = true;
+        }
+      }
+      window.addEventListener('scroll', onScroll, { passive: true });
+    })();
   </script>
 </body>
 </html>
