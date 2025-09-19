@@ -12,94 +12,133 @@
         extend: {
           colors: {
             primary: {50:'#eef9ff',100:'#d9f1ff',200:'#b8e6ff',300:'#88d7ff',400:'#4fc0ff',500:'#199fff',600:'#067fe5',700:'#0565b7',800:'#094f8e',900:'#0d426f'},
-            accent:'#00c29a'
-          }
+            accent: '#00c29a'
+          },
+          boxShadow:{ soft:'0 8px 24px rgba(0,0,0,.08)', elev:'0 12px 36px rgba(0,0,0,.12)'}
         }
       }
     }
   </script>
+  <style>html{scroll-behavior:smooth}</style>
 </head>
-<body class="text-gray-800 antialiased bg-gray-50">
+<body class="text-gray-800 antialiased relative">
+
+  <!-- 全頁連貫背景：柔和漸層 + 低透明點陣 -->
+  <div aria-hidden="true" class="fixed inset-0 -z-20 bg-gradient-to-br from-primary-50 via-white to-accent/10"></div>
+  <div aria-hidden="true" class="fixed inset-0 -z-10 opacity-[0.05] bg-[radial-gradient(circle_at_1px_1px,#000_1px,transparent_0)] [background-size:28px_28px]"></div>
 
   <!-- 表頭 -->
-  <header class="sticky top-0 z-40 bg-white/70 backdrop-blur border-b border-gray-200">
+  <header class="sticky top-0 z-40 bg-white/70 backdrop-blur border-b border-white/60 shadow-soft">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <div class="flex h-14 items-center justify-between">
         <a href="index.html" class="flex items-center gap-2 text-primary-800 font-semibold hover:opacity-90">
           <img src="images/[Logo]中華全球整合行銷學會-無字.png" alt="學會 Logo" class="h-8 w-auto" />
           <span>中華全球整合行銷學會</span>
         </a>
-        <a href="event.html#contact-event" class="rounded-xl border border-primary-600 px-3 py-1.5 text-sm text-primary-700 hover:bg-primary-600 hover:text-white transition">
+        <a href="#contact-event" class="rounded-xl border border-primary-600 px-3 py-1.5 text-sm text-primary-700 hover:bg-primary-600 hover:text-white transition">
           聯絡我們
         </a>
       </div>
     </div>
   </header>
 
-  <!-- 活動主視覺 -->
-  <section class="relative overflow-hidden bg-white">
-    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-10 sm:py-14">
-      <div class="grid md:grid-cols-2 gap-8 items-center">
-        <div>
-          <p class="text-xs uppercase tracking-widest text-primary-700">Special Event</p>
-          <h1 class="mt-1 text-3xl sm:text-4xl font-extrabold text-primary-900">AI 智能設備特展</h1>
-          <ul class="mt-4 text-gray-700 space-y-1.5 text-sm">
-            <li>📅 時間：9/20–22　10:00–17:00</li>
-            <li>📍 地點：世貿一館二樓 第二會議室</li>
-            <li>🎁 活動：免費進場，憑券兌換「茶與布朗」飲品一杯</li>
-          </ul>
-          <a href="index.html" class="mt-5 inline-flex rounded-xl bg-primary-600 px-5 py-3 text-white font-medium shadow hover:bg-primary-700 transition">
-            ← 返回首頁
-          </a>
-        </div>
-        <div>
-          <img src="images/poster2.png" alt="AI 智能設備特展 主視覺海報" class="w-full rounded-2xl shadow-lg ring-1 ring-black/5 object-cover" />
+  <!-- 活動主視覺（卡片容器） -->
+  <section class="py-10 sm:py-14">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="rounded-2xl bg-white/80 backdrop-blur-sm shadow-soft ring-1 ring-black/5 p-6 sm:p-8">
+        <div class="grid md:grid-cols-2 gap-8 items-center">
+          <div>
+            <p class="text-xs uppercase tracking-widest text-primary-700">Special Event</p>
+            <h1 class="mt-1 text-3xl sm:text-4xl font-extrabold text-primary-900">AI 智能設備特展</h1>
+            <ul class="mt-4 text-gray-700 space-y-1.5 text-sm">
+              <li>📅 時間：9/20–22　10:00–17:00</li>
+              <li>📍 地點：世貿一館二樓 第二會議室</li>
+              <li>🎁 活動：免費進場，憑券兌換「茶與布朗」飲品一杯</li>
+            </ul>
+            <a href="index.html" class="mt-5 inline-flex rounded-xl bg-primary-600 px-5 py-3 text-white font-medium shadow hover:bg-primary-700 transition">
+              ← 返回首頁
+            </a>
+          </div>
+          <div>
+            <img src="images/poster2.png" alt="AI 智能設備特展 主視覺海報"
+                 class="w-full rounded-2xl shadow-lg ring-1 ring-black/5 object-cover" />
+          </div>
         </div>
       </div>
     </div>
   </section>
 
-    <!-- 活動海報區塊 -->
-    <section id="gallery" class="py-12 sm:py-16 bg-gray-50">
+  <!-- 活動海報（卡片容器） -->
+  <section id="gallery" class="py-2 sm:py-2">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="rounded-2xl bg-white/80 backdrop-blur-sm shadow-soft ring-1 ring-black/5 p-6 sm:p-8">
         <h2 class="text-2xl sm:text-3xl font-bold text-primary-900">活動海報</h2>
         <div class="mt-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-6">
-        <img src="images/poster1.jpg" alt="活動海報 1" class="rounded-2xl shadow-md ring-1 ring-black/5 object-cover w-full" loading="lazy">
-        <img src="images/poster2.jpg" alt="活動海報 2" class="rounded-2xl shadow-md ring-1 ring-black/5 object-cover w-full" loading="lazy">
-        <img src="images/poster3.jpg" alt="活動海報 3" class="rounded-2xl shadow-md ring-1 ring-black/5 object-cover w-full" loading="lazy">
-        <img src="images/poster4.jpg" alt="活動海報 4" class="rounded-2xl shadow-md ring-1 ring-black/5 object-cover w-full" loading="lazy">
-        <img src="images/poster5.jpg" alt="活動海報 5" class="rounded-2xl shadow-md ring-1 ring-black/5 object-cover w-full sm:col-span-2" loading="lazy">
+          <img src="images/poster1.jpg" alt="活動海報 1" class="rounded-2xl shadow-md ring-1 ring-black/5 object-cover w-full" loading="lazy">
+          <img src="images/poster2.jpg" alt="活動海報 2" class="rounded-2xl shadow-md ring-1 ring-black/5 object-cover w-full" loading="lazy">
+          <img src="images/poster3.jpg" alt="活動海報 3" class="rounded-2xl shadow-md ring-1 ring-black/5 object-cover w-full" loading="lazy">
+          <img src="images/poster4.jpg" alt="活動海報 4" class="rounded-2xl shadow-md ring-1 ring-black/5 object-cover w-full" loading="lazy">
+          <img src="images/poster5.jpg" alt="活動海報 5" class="rounded-2xl shadow-md ring-1 ring-black/5 object-cover w-full sm:col-span-2" loading="lazy">
         </div>
+      </div>
     </div>
-    </section>
+  </section>
 
-  <!-- 聯絡我們 -->
-  <section id="contact-event" class="py-16 sm:py-20 bg-white">
+  <!-- 本次參與企業（卡片容器＋美化背景已由全頁提供） -->
+  <section id="event-partners" class="py-2 sm:py-2">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-      <div class="grid lg:grid-cols-2 gap-10 items-start">
-        <div>
-          <h2 class="text-2xl sm:text-3xl font-bold text-primary-900">聯絡我們</h2>
-          <p class="mt-2 text-sm text-gray-500">Contact</p>
-          <p class="mt-4 text-gray-700 leading-relaxed">
-            諮詢入會／合作事宜，歡迎加入官方 LINE（掃描右側 QR Code），或來信／來電洽詢。若需預約諮詢與簡報，也可使用下方表單留下聯絡方式。
-          </p>
-          <ul class="mt-4 space-y-2 text-gray-700 text-sm">
-            <li class="flex items-start gap-2"><span class="mt-1 inline-block h-2 w-2 rounded-full bg-primary-600"></span>會址：臺北市大安區誠安里復興南路1段126巷1號地下之96</li>
-            <li class="flex items-start gap-2"><span class="mt-1 inline-block h-2 w-2 rounded-full bg-primary-600"></span>E-mail：<a href="mailto:riven.wu@fawis.com.tw" class="text-primary-700 hover:underline">riven.wu@fawis.com.tw</a></li>
-            <li class="flex items-start gap-2"><span class="mt-1 inline-block h-2 w-2 rounded-full bg-primary-600"></span>電話：<a href="tel:+886-2-2783-0359" class="text-primary-700 hover:underline">02-2783-0359</a></li>
-          </ul>
+      <div class="rounded-2xl bg-white/80 backdrop-blur-sm shadow-soft ring-1 ring-black/5 p-6 sm:p-8">
+        <h2 class="text-2xl sm:text-3xl font-bold text-primary-900 text-center">本次參與企業</h2>
+        <p class="mt-2 text-sm text-gray-500 text-center">Event Participants</p>
+
+        <div class="mt-10 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6">
+          <!-- fafago -->
+          <div class="flex flex-col items-center justify-center rounded-2xl border border-gray-200 bg-white p-6 shadow-soft hover:shadow-elev transition">
+            <img src="images/[Logo]FAFAGO.png" alt="fafago" class="h-12 w-auto object-contain" />
+            <p class="mt-2 text-sm text-gray-600">電動車充電樁</p>
+          </div>
+          <!-- 茶與布朗 -->
+          <div class="flex flex-col items-center justify-center rounded-2xl border border-gray-200 bg-white p-6 shadow-soft hover:shadow-elev transition">
+            <img src="images/[Logo]茶與布朗.png" alt="茶與布朗" class="h-12 w-auto object-contain" />
+            <p class="mt-2 text-sm text-gray-600">AI 智能調飲體驗</p>
+          </div>
         </div>
-        <div class="lg:pl-8">
-          <div class="rounded-2xl border border-gray-200 p-6 bg-gray-50">
-            <h3 class="font-semibold text-primary-800">官方 LINE OA</h3>
-            <p class="mt-2 text-sm text-gray-600">請將 QR Code 圖片置於下方框內。</p>
-            <div class="mt-4 aspect-square w-full max-w-xs mx-auto rounded-2xl bg-white border border-dashed border-gray-300 grid place-items-center overflow-hidden">
-              <!-- QR Code 圖片 -->
-              <img src="images/LINEOA_QRCode.jpg" alt="LINE 官方帳號 QR Code" class="h-full w-full object-contain" />
+
+        <p class="mt-6 text-xs text-gray-500 text-center">
+          ＊以上品牌將於現場展出最新技術與產品，提供體驗與交流。
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 聯絡我們（卡片容器） -->
+  <section id="contact-event" class="py-2 sm:py-2">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="rounded-2xl bg-white/80 backdrop-blur-sm shadow-soft ring-1 ring-black/5 p-6 sm:p-8">
+        <div class="grid lg:grid-cols-2 gap-10 items-start">
+          <div>
+            <h2 class="text-2xl sm:text-3xl font-bold text-primary-900">聯絡我們</h2>
+            <p class="mt-2 text-sm text-gray-500">Contact</p>
+            <p class="mt-4 text-gray-700 leading-relaxed">
+              諮詢入會／合作事宜，歡迎加入官方 LINE（掃描QR-Code），或來信／來電洽詢。若需預約諮詢與簡報，也可使用下方表單留下聯絡方式。
+            </p>
+            <ul class="mt-4 space-y-2 text-gray-700 text-sm">
+              <li class="flex items-start gap-2"><span class="mt-1 inline-block h-2 w-2 rounded-full bg-primary-600"></span>會址：臺北市大安區誠安里復興南路1段126巷1號地下之96</li>
+              <li class="flex items-start gap-2"><span class="mt-1 inline-block h-2 w-2 rounded-full bg-primary-600"></span>E-mail：<a href="mailto:riven.wu@fawis.com.tw" class="text-primary-700 hover:underline">riven.wu@fawis.com.tw</a></li>
+              <li class="flex items-start gap-2"><span class="mt-1 inline-block h-2 w-2 rounded-full bg-primary-600"></span>電話：<a href="tel:+886-2-2783-0359" class="text-primary-700 hover:underline">02-2783-0359</a></li>
+            </ul>
+          </div>
+          <div class="lg:pl-8">
+            <div class="rounded-2xl border border-gray-200 p-6 bg-white">
+              <h3 class="font-semibold text-primary-800">官方 LINE OA</h3>
+              <p class="mt-2 text-sm text-gray-600">請將 QR Code 圖片置於下方框內。</p>
+              <div class="mt-4 aspect-square w-full max-w-xs mx-auto rounded-2xl bg-white border border-dashed border-gray-300 grid place-items-center overflow-hidden">
+                <img src="images/LINEOA_QRCode.jpg" alt="LINE 官方帳號 QR Code" class="h-full w-full object-contain" />
+              </div>
+              <a href="https://lin.ee/0bwRRjo" class="mt-4 block text-center text-sm text-primary-700 hover:underline">
+                或點此開啟加入連結
+              </a>
             </div>
-            <a href="https://lin.ee/0bwRRjo" class="mt-4 block text-center text-sm text-primary-700 hover:underline">
-              或點此開啟加入連結
-            </a>
           </div>
         </div>
       </div>
@@ -107,7 +146,7 @@
   </section>
 
   <!-- 頁尾 -->
-  <footer class="border-t border-gray-200 bg-white">
+  <footer class="border-t border-white/60 bg-white/70 backdrop-blur">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-8 text-sm text-gray-600 text-center">
       © <span id="y"></span> 中華全球整合行銷學會｜All Rights Reserved.
     </div>
